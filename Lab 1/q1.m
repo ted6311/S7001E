@@ -55,3 +55,4 @@ figure;
 histogram(roll, 6,  'Normalization', 'probability')
 xlabel("Side");
 ylabel("estimated PDF");
+

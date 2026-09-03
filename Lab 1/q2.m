@@ -52,8 +52,12 @@ xlabel("Side")
 ylabel("Theoretical Probability")
 
 %% c) 
-figure;
-histogram(roll, 4,  'Normalization', 'probability')
+figure; grid on; 
+h = hist(roll, 4);
+h = h / sum(h);
+h = cumsum(h);
+bar(h)
+
 xlabel("Side");
 ylabel("estimated Probability");
 title("Estimated vs Theoretical probability");
