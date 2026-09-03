@@ -25,4 +25,4 @@ for i = 1:N
     
 end
  
-disp(['Probability to get even (%): ', num2str(100*(x/N))])
+fprintf

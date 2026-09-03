@@ -18,6 +18,7 @@ xlabel("bins")
 ylabel("Throws")
 
 
+
 %PDF
 P = [1/6 1/6 1/6 1/6 1/6 1/6 ];
 figure; 
