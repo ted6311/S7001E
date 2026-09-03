@@ -14,7 +14,7 @@ function [a, b, roll, N] = roll_dice(N)
     for i=1:N % loop over number of rolls
         x=rand(1,1);
         for j=2:length(P) % determine result of each roll
-            if( (P(j-1)<x) & (x<P(j)) )
+            if( (P(j-1)<x) && (x<P(j)) )
                 roll(i) = j-1;
                 break
             end
