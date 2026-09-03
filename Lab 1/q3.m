@@ -25,4 +25,24 @@ for i = 1:N
     
 end
  
-disp(['Probability to get even (%): ', num2str(100*(x/N))])
+disp(['Probability to get even: ', num2str(100*(x/N)), '%'])
+
+
+%% c)
+% Probability is 35%
+
+%% d)
+
+x = 0; 
+x1 = 0; 
+for i = 1:N
+    x1 = roll(i) + roll2(i);
+    if mod(x1, 2) == 0 && roll2(i) > 2
+        x = x + 1;
+    else
+        continue
+    end
+
+end
+
+disp(['Probability to get even and that die #2 > 2: ', num2str(100*(x/N)), '%'])
