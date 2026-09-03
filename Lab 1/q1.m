@@ -6,7 +6,7 @@ clear; clc;
 
 
 
-function [a, b, roll] = roll_dice(N)
+function [a, b, roll, N] = roll_dice(N)
     p = [1/6 1/6 1/6 1/6 1/6 1/6 ]; % probability of each face
     P = [0 cumsum(p)] ;
     roll = zeros(N,1); % vector to hold results of each roll
@@ -28,7 +28,7 @@ function [a, b, roll] = roll_dice(N)
     
 end
 
-[a,b, roll] = roll_dice(1000);
+[a,b, roll, N] = roll_dice(1000);
 disp("Fraction/side"), disp(b)
 % Function works
 % And we get the fraction for each occurence
@@ -49,3 +49,9 @@ figure;
 bar(P);
 xlabel("Side")
 ylabel("Theoretical Probability")
+
+%% c) scale the hist-diag properly so we got estimate of PDF
+figure;
+histogram(roll, 6,  'Normalization', 'probability')
+xlabel("Side");
+ylabel("estimated PDF");

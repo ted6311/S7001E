@@ -28,12 +28,35 @@ function [a, b, roll] = roll_dice(N)
     
 end
 
-[a,b] = roll_dice(600000);
+[a,b, roll] = roll_dice(1000);
 disp("Fraction/side"), disp(b)
 % Function works
 % And we get the fraction for each occurence
 
 %% b) 
 
+%Hist
+
+figure; grid on; 
+hist(roll, 6)
+xlabel("bins")
+ylabel("Throws")
 
 
+%PDF
+P = [1/6 1/6 1/6 1/6 1/6 1/6 ];
+figure; 
+bar(P);
+xlabel("Side")
+ylabel("Theoretical Probability")
+
+
+%% c) scale the hist-diag properly so we got estimate of PDF
+figure;
+h = hist(roll, 6);
+h = h / sum(h);       % normalize counts so total area = 1
+
+bar(1:6, h);
+grid on;
+xlabel("Side");
+ylabel("Estimated PDF");
