@@ -1,4 +1,4 @@
-function [a, b, roll, N] = bits(N)
+function [number, roll,x, N] = bits(N)
 P = [0.001, 0.999];
 P = [0 cumsum(P)];
 roll = zeros(N,100); % vector to hold results of each roll
@@ -23,10 +23,7 @@ for i = 1:N
         x(i) = 0;
     end
 end
-a = zeros(1,4);
-% for i = 1:4
-%     a(i) = sum(roll == i);
-% end
-b = a/N;
+
+number = sum(x <= 2);
 
 end

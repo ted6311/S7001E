@@ -25,16 +25,11 @@ a1 = a+b+c;
 %% b) Simulate transmission of many blocks of 100 bits over the channel. Does the fraction
 % of blocks that contain 2 or fewer errors agree with your theoretical result in (a)?
 
-P = [0.001, 0.999];
-P = [0 cumsum(P)];
 
 
+[number, roll , x, N] = bits(100000);
 
+fraction = number/N;
 
-
-A = [1, 2, 0; 0, 1, 2; 4, 3, 0];
-A1 = [1;2;3]
-A2 = length(A1)
-x = find(A(3, :)==0);
-
-[a, b, roll, N] = bits(100);
+disp(['Simulated probability: ', num2str(fraction)])
+disp(['In percent: ', num2str(100*fraction), '%'])
