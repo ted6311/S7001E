@@ -27,7 +27,7 @@ disp(['Theoretical probability: ', num2str(a1)])
 
 
 
-[number, roll , x, N] = bits(100);
+[number, roll , x, N] = bits(100, 0);
 
 fraction = number/N;
 
@@ -43,3 +43,9 @@ b=100*P^99*P_error;
 a1 = a/(a+b);
 disp(['Theoretical probability:', num2str(a1)])
 
+%% d) simulate c)
+
+[number1, roll1 , x1, N1] = bits(1000000, 1);
+% fraction2 = number1/N1
+frac = number1(1)/(number1(1)+number1(2));
+disp(['Simulated probability: ', num2str(frac)])
