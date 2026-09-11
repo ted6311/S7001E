@@ -19,7 +19,7 @@ a=a;
 b=b*100;
 c=100*99*c/2;
 a1 = a+b+c;
-
+disp(['Theoretical probability: ', num2str(a1)])
 
 
 %% b) Simulate transmission of many blocks of 100 bits over the channel. Does the fraction
@@ -27,9 +27,19 @@ a1 = a+b+c;
 
 
 
-[number, roll , x, N] = bits(100000);
+[number, roll , x, N] = bits(100);
 
 fraction = number/N;
 
 disp(['Simulated probability: ', num2str(fraction)])
-disp(['In percent: ', num2str(100*fraction), '%'])
+disp(['percent: ', num2str(100*fraction), '%'])
+
+
+%% c) Determine the theoretical probability that there were no errors in a block of 100 bits,
+% given that less than 2 errors occurred when transmitting the block.
+
+a=P^100;
+b=100*P^99*P_error;
+a1 = a/(a+b);
+disp(['Theoretical probability:', num2str(a1)])
+
