@@ -41,3 +41,10 @@ title('Histogram and theoretical pdf');
 legend('Histogram', 'Theoretical pdf');
 grid on;
 
+%% d) find points between 1<X<2? and Theoretical probability
+
+a = find(X>=1 & X<=2);
+a_len = length(a); 
+fraction = a_len/length(X); 
+
+disp(['Probability to get 1<X<2: ', num2str(fraction), ' = ', num2str(100*fraction),'%'])

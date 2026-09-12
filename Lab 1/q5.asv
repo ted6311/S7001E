@@ -26,8 +26,9 @@ disp(['variance: ', num2str(variance)])
 %% c) Histogram and theoretical pdf curve
 
 figure; hold on; grid on; 
-% histogram(X, 'Normalization', 'probability')
-h = hist(X); 
+histogram(X, 'Normalization', 'pdf')
+
+
 
 x = linspace(-2, 12, 1000);
 pdf = (1/sqrt(2*pi*3)) * exp(-(x-5).^2/(2*3)); %pdf
@@ -36,6 +37,12 @@ plot(x, pdf, 'LineWidth', 2);
 
 xlabel('X');
 ylabel('Probability density');
-title('Histogram and theoretical PDF');
-legend('Histogram', 'Theoretical PDF');
+title('Histogram and theoretical pdf');
+legend('Histogram', 'Theoretical pdf');
 grid on;
+
+%% d) find points between 1<X<2 
+
+a = find(X>=2);
+
+
