@@ -31,7 +31,7 @@ histogram(X, 'Normalization', 'pdf')
 
 
 x = linspace(-2, 12, 1000);
-pdf = (1/sqrt(2*pi*3)) * exp(-(x-5).^2/(2*3)); %pdf
+pdf = (1/sqrt(2*pi*3)) * exp(-(x-5).^2/(2*3)); %pdf book page 89
 
 plot(x, pdf, 'LineWidth', 2);
 
@@ -48,3 +48,7 @@ a_len = length(a);
 fraction = a_len/length(X); 
 
 disp(['Probability to get 1<X<2: ', num2str(fraction), ' = ', num2str(100*fraction),'%'])
+
+
+% book 89-95
+% integral dwedsd
