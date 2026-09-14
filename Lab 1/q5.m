@@ -51,4 +51,6 @@ disp(['Probability to get 1<X<2: ', num2str(fraction), ' = ', num2str(100*fracti
 
 
 % book 89-95
-% integral dwedsd
+% integral 
+P = 0.5 * (erf((2-5)/sqrt(3*2)) - erf((1-5)/sqrt(3*2)));
+disp(['Theoretical Probability to get 1<X<2: ', num2str(P), ' = ', num2str(100*P),'%'])
