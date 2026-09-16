@@ -6,11 +6,10 @@ clear; clc;
 %% a) Write a short program to generate N = 10000 points
 
 N = 10000; 
-Y = rand(10000000,1);
+Y = rand(10000,1);
 X = zeros(size(Y));
 a = Y<0.5;
 b = Y >= 0.5; 
-X(a) = -1+sqrt(2*Y(a));
-X(b) = 1 - sqrt(2*(1-Y(b)));
+X(a) = -1+sqrt(2*);
 
-histogram(X,151,'Normalization','pdf')
+% histogram(X,50,'Normalization','pdf')
