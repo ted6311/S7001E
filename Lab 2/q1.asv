@@ -6,10 +6,20 @@ clear; clc;
 %% a) Write a short program to generate N = 10000 points
 
 N = 10000; 
-Y = rand(10000,1);
+Y = rand(N,1);
 X = zeros(size(Y));
 a = Y<0.5;
 b = Y >= 0.5; 
-X(a) = -1+sqrt(2*);
+X(a) = -1+sqrt(2*Y(a));
+X(b) = 1 - sqrt(2*(1-Y(b)));
 
-% histogram(X,50,'Normalization','pdf')
+
+
+
+
+%% b) hist and theoretical pdf
+figure; grid on; hold on; 
+histogram(X,53,'Normalization','pdf')
+
+x = linspace(-3,3, 1000); 
+
