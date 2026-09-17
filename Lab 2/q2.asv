@@ -1,8 +1,8 @@
 
 clear; clc; 
 
-N = 10000000; 
-A = 10;
+N = 10000; 
+ A = 12;
 x = rand(N, A);
 x1 = zeros(N,1);
 for i = 1:N 
