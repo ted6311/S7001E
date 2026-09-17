@@ -10,8 +10,8 @@ N = 10000;
 x = randn(1, N);
 % 3 = mean
 % sigma^2 =2 = variance 
-x = sqrt(2)*x;
-x = x + 3;
+% x = sqrt(2)*x;
+% x = x + 3;
 
 %% a) histogram as an estimate of the pdf f_X(x)
 
