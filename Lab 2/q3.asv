@@ -26,9 +26,14 @@ ylabel('f_{X}(x)')
 %% b) Try a variety of values for N and number of bins in the histogram.
 
 N = [1000, 100000, 1000000, 10000000];
-for i = 1 :4
-    
-
-
-    
+bins = [10, 20, 50, 100];
+figure;
+for i = 1 : 4
+    x = randn(1 ,N(i));
+    x = 3 + sqrt(2)*x;
+    subplot(2,2,i);
+    histogram(x, bins(i), 'Normalization','pdf')
+    xlabel('x')
+    ylabel('f_{X}(x)')
+    title("f_{X}(x) for N = "+ num2str(N(i)) + " points, and " + num2str(bins(i)) + " bins")
 end
