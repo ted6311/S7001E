@@ -15,3 +15,10 @@ Y1 = 0.5*X1 + 3*X2;
 Y2 = X1 + X2; 
 
 %% a) Expression for the joint pdf fX1X2 (x1, x2)?
+
+mean(X1)
+var(X1)
+
+mean(X2)
+var(X2)
+
