@@ -16,9 +16,13 @@ Y2 = X1 + X2;
 
 %% a) Expression for the joint pdf fX1X2 (x1, x2)?
 
-mean(X1)
-var(X1)
 
-mean(X2)
-var(X2)
+%% b) mean, cov
 
+mean_1 = mean(X1);
+mean_2 = mean(X2);
+
+C = cov(X1, X2);
+covariance = C(1,2);
+disp(['Mean X1 = ',num2str(mean_1) ])
+disp(['Mean X2 = ',num2str(mean_2) ])
