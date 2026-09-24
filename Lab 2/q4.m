@@ -29,3 +29,15 @@ disp(['Mean X1 = ',num2str(mean_1) ])
 disp(['Mean X2 = ',num2str(mean_2) ])
 disp(['Cov(X1, X2) = ',num2str(C(1,2)) ])
 disp(['p(X1, X2) = ',num2str(C2(1,2)) ])
+
+%% c) scatter plot
+
+figure; 
+
+plot(X1, X2, '.');
+grid on;
+xlabel('X_1');
+ylabel('X_2');
+title('Scatter plot X_1 vs. X_2');
+
+%% d) 
