@@ -24,7 +24,6 @@ mean_2 = mean(X2);
 
 C = cov(X1, X2);
 C2 = corrcoef(X1, X2);
-covariance = C(1,2);
 disp(['Mean X1 = ',num2str(mean_1) ])
 disp(['Mean X2 = ',num2str(mean_2) ])
 disp(['Cov(X1, X2) = ',num2str(C(1,2)) ])
@@ -40,4 +39,33 @@ xlabel('X_1');
 ylabel('X_2');
 title('Scatter plot X_1 vs. X_2');
 
-%% d) 
+%% d) repeat a), b) and c) for Y1 and Y2
+
+
+% b)
+mean_1 = mean(Y1);
+mean_2 = mean(Y2);
+
+C1 = cov(Y1, Y2);
+C22 = corrcoef(Y1, Y2);
+
+disp('_')
+disp('Part d)')
+
+disp(['Mean X1 = ',num2str(mean_1) ])
+disp(['Mean X2 = ',num2str(mean_2) ])
+disp(['Cov(X1, X2) = ',num2str(C1(1,2)) ])
+disp(['p(X1, X2) = ',num2str(C22(1,2)) ])
+
+% c) 
+figure; 
+
+plot(Y1, Y2, '.');
+grid on;
+xlabel('X_1');
+ylabel('X_2');
+title('Scatter plot X_1 vs. X_2');
+var(X1)
+var(X2)
+var(Y1)
+var(Y2)
