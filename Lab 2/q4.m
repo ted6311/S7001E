@@ -52,20 +52,18 @@ C22 = corrcoef(Y1, Y2);
 disp('_')
 disp('Part d)')
 
-disp(['Mean X1 = ',num2str(mean_1) ])
-disp(['Mean X2 = ',num2str(mean_2) ])
-disp(['Cov(X1, X2) = ',num2str(C1(1,2)) ])
-disp(['p(X1, X2) = ',num2str(C22(1,2)) ])
+disp(['Mean Y1 = ',num2str(mean_1) ])
+disp(['Mean Y2 = ',num2str(mean_2) ])
+disp(['Cov(Y1, Y2) = ',num2str(C1(1,2)) ])
+disp(['p(Y1, Y2) = ',num2str(C22(1,2)) ])
 
 % c) 
 figure; 
 
 plot(Y1, Y2, '.');
 grid on;
-xlabel('X_1');
-ylabel('X_2');
-title('Scatter plot X_1 vs. X_2');
-var(X1)
-var(X2)
-var(Y1)
-var(Y2)
+xlabel('Y_1');
+ylabel('Y_2');
+title('Scatter plot Y_1 vs. Y_2');
+
+
