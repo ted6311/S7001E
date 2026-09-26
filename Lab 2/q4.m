@@ -67,3 +67,14 @@ ylabel('Y_2');
 title('Scatter plot Y_1 vs. Y_2');
 
 
+%% f)
+int = @(v) (1/sqrt(2*pi)) * exp(-0.5 * v.^2) .* normcdf((4*sqrt(3)/5).*v - sqrt(6)/10);
+
+int2 = integral(int, -1.1547, -0.5774);
+
+
+%% g)
+event = (Y2 > 2) & (Y2 < 3) & (Y1 > 5);
+condition = Y1 > 5;
+
+P_estimate = sum(event) / sum(condition);
