@@ -84,3 +84,9 @@ xlabel('Sample');
 ylabel('k');
 title('Estimated k over iterstions');
 grid on;
+
+
+%% h)
+
+% audiowrite('sep_newspaper1.wav', X_hat/max(abs(X_hat)), fs);
+% audiowrite('sep_newspaper2.wav', Y_hat/max(abs(Y_hat)), fs);
