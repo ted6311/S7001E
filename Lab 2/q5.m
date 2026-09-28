@@ -46,12 +46,13 @@ u = 10^(-5);
 k = 0;
 
 
-k_values = zeros(length(X)-100,1);
+k_values = zeros(length(X),1);
+
 
 
 for i = 101:length(X)
 
-   
+
     L2 = (1-lambda)*X(i,1)^2 + lambda*L2;
     LR = (1-lambda)*X(i,1)*X(i,2) + lambda*LR;
     R2 = (1-lambda)*X(i,2)^2 + lambda*R2;
@@ -64,6 +65,22 @@ for i = 101:length(X)
 
     k = k - u*sign(dQ);
 
-    k_values(i-100) = k;
+    k_values(i) = k;
 
 end
+
+% Check if minimize
+dq2 = 4*LR^2*k^3 ...
+    + 6*LR*(L2+R2)*k^2 ...
+    + 2*((L2+R2)^2 + 2*LR^2)*k ...
+    + 2*LR*(L2+R2);
+
+X_hat = X(:,1) + k_values .* X(:,2);
+Y_hat = k_values .* X(:,1) + X(:,2);
+
+figure;
+plot(k_values);
+xlabel('Sample');
+ylabel('k');
+title('Estimated k over iterstions');
+grid on;
