@@ -1,0 +1,77 @@
+
+clear; clc;
+
+
+%% Question 1
+
+A = [30, 18, 15; 
+    18, 30, 18;
+    15, 18, 30];
+B = [18; 15; 6];
+
+a = A\B;
+disp('Q1')
+disp(['a0 = ', num2str(a(1))])
+disp(['a_1 = ', num2str(a(2))])
+disp(['a_2 = ', num2str(a(3))])
+
+%% Question 2
+
+N = 1000; 
+% Var = 3, mean = 0
+w = sqrt(3)*randn(N,1); 
+
+d = [2,1,2,1];
+X = zeros(N-3,1);
+% Calc MA
+for n = 4:N
+    X(n-3) = 2*w(n) + w(n-1) + 2*w(n-2) + w(n-3);
+end
+
+
+
+a0 = 0.52821;
+a1 = 0.34615;
+a2 = -0.27179;
+
+X_hat = zeros(length(X),1);
+for n = 4:length(X)
+    X_hat(n) = a0*X(n-1) + a1*X(n-2) + a2*X(n-3);
+end
+
+epilson = X-X_hat; 
+
+
+disp('$\hat{X}$')
+
+
+
+
+
+%% Plot actual and predicted sequences
+figure;
+
+plot(1:N-3, X, 'DisplayName', 'x_n');
+hold on;
+plot(1:N-3, X_hat, 'DisplayName', 'X_n_hat');
+
+xlabel('n');
+ylabel('Amplitude');
+title('MA(3) process and LMMSE prediction');
+legend;
+grid on;
+
+%% Plot prediction error
+figure;
+
+plot(1:N-3, epilson);
+
+xlabel('n');
+ylabel('Error');
+title('Prediction error');
+grid on;
+
+%% Calculate mean squared prediction error
+mse = mean(epilson(4:end).^2);
+
+fprintf('Mean squared prediction error: %.4f\n', mse);
