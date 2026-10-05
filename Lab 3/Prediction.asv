@@ -48,12 +48,12 @@ disp('$\hat{X}$')
 
 
 
-% Plot
+%% Plot actual and predicted sequences
 figure;
 
 plot(1:N, X, 'DisplayName', 'x_n');
 hold on;
-plot(1:N, X_hat, 'DisplayName', 'X_{n, hat}');
+plot(1:N, X_hat, 'DisplayName', 'X_n \we');
 
 xlabel('n');
 ylabel('Amplitude');
@@ -61,7 +61,7 @@ title('MA(3) process and LMMSE prediction');
 legend;
 grid on;
 
-
+%% Plot prediction error
 figure;
 
 plot(1:N, epilson);
@@ -71,7 +71,7 @@ ylabel('Error \epsilon');
 title('Prediction error');
 grid on;
 
-% mean squared prediction error
+%% Calculate mean squared prediction error
 mse = mean(epilson(4:end).^2);
 
 fprintf('Mean squared prediction error: %.4f\n', mse);
