@@ -22,10 +22,10 @@ N = 1000;
 w = sqrt(3)*randn(N,1); 
 
 d = [2,1,2,1];
-X = zeros(N-3,1);
+X = zeros(N,1);
 % Calc MA
 for n = 4:N
-    X(n-3) = 2*w(n) + w(n-1) + 2*w(n-2) + w(n-3);
+    X(n) = 2*w(n) + w(n-1) + 2*w(n-2) + w(n-3);
 end
 
 
@@ -51,9 +51,9 @@ disp('$\hat{X}$')
 %% Plot actual and predicted sequences
 figure;
 
-plot(1:N-3, X, 'DisplayName', 'x_n');
+plot(1:N, X, 'DisplayName', 'x_n');
 hold on;
-plot(1:N-3, X_hat, 'DisplayName', 'X_n_hat');
+plot(1:N, X_hat, 'DisplayName', 'X_n_hat');
 
 xlabel('n');
 ylabel('Amplitude');
@@ -64,7 +64,7 @@ grid on;
 %% Plot prediction error
 figure;
 
-plot(1:N-3, epilson);
+plot(1:N, epilson);
 
 xlabel('n');
 ylabel('Error');
