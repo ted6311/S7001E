@@ -60,23 +60,31 @@ title('Cross-correlation R_{XY}[k]');
 
 %% Q3 power spectral densities
 N = 10000;
-SXX = fft(RXX, N);
-SYY = fft(RYY, N);
+SXX = fft(ifftshift(RXX), N);
 
+SYY = fft(ifftshift(RYY), N);
+SXX = fftshift(SXX);
+SYY = fftshift(SYY);
 w = linspace(-pi, pi, N);
-
+% SXX = real(SXX);
+% SYY= real(SYY);
 figure; 
 
+
+SXX = abs(SXX);
+SYY = abs(SYY);
+
+
 subplot(2,1,1)
-plot(w,real(SXX))
+plot(w,SXX)
 title('psd S_{XX}(\omega) [-\pi \leq \omega \leqq \pi ]')
 xlim([-pi pi]);
 xlabel('\omega')
 ylabel('S_{XX}(\omega)')
 
 subplot(2,1,2)
-plot(w,real(SYY))
+plot(w,SYY)
 title('psd S_{YY}(\omega) [-\pi \leq \omega \leqq \pi ]')
 xlim([-pi pi]);
 xlabel('\omega')
-ylabel('S_{YY}(\omega)')
+ylabel('S_{YY}(\omega)') 
