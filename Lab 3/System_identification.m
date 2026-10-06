@@ -15,18 +15,22 @@ load("input_output.mat")
 l  = 50;
 
 %auto correlation
-figure;
-[RXX, lags1] = xcorr(x, l);
-stem(lags1,RXX)
 
-figure;
+[RXX, lags1] = xcorr(x, l);
+% figure;
+% stem(lags1,RXX)
+
+
 [RYY, lags2] = xcorr(y, l);
-stem(lags2,RYY)
+% figure;
+% stem(lags2,RYY)
 
 %cross correlation
-figure;
+
 [RXY, lags3] = xcorr(x,y, l);
-stem(lags3,RXY)
+% figure;
+% stem(lags3,RXY)
+
 
 
 figure;
@@ -51,3 +55,28 @@ grid on;
 xlabel('Lag k');
 ylabel('R_{XY}[k]');
 title('Cross-correlation R_{XY}[k]');
+
+
+
+%% Q3 power spectral densities
+N = 10000;
+SXX = fft(RXX, N);
+SYY = fft(RYY, N);
+
+w = linspace(-pi, pi, N);
+
+figure; 
+
+subplot(2,1,1)
+plot(w,real(SXX))
+title('psd S_{XX}(\omega) [-\pi \leq \omega \leqq \pi ]')
+xlim([-pi pi]);
+xlabel('\omega')
+ylabel('S_{XX}(\omega)')
+
+subplot(2,1,2)
+plot(w,real(SYY))
+title('psd S_{YY}(\omega) [-\pi \leq \omega \leqq \pi ]')
+xlim([-pi pi]);
+xlabel('\omega')
+ylabel('S_{YY}(\omega)')
