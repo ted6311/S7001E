@@ -27,3 +27,27 @@ stem(lags2,RYY)
 figure;
 [RXY, lags3] = xcorr(x,y, l);
 stem(lags3,RXY)
+
+
+figure;
+
+subplot(3,1,1)
+stem(lags1, RXX, 'filled');
+grid on;
+xlabel('Lag k');
+ylabel('R_{XX}[k]');
+title('Auto-correlation R_{XX}[k]');
+
+subplot(3,1,2)
+stem(lags2, RYY, 'filled');
+grid on;
+xlabel('Lag k');
+ylabel('R_{YY}[k]');
+title('Auto-correlation R_{YY}[k]');
+
+subplot(3,1,3)
+stem(lags3, RXY, 'filled');
+grid on;
+xlabel('Lag k');
+ylabel('R_{XY}[k]');
+title('Cross-correlation R_{XY}[k]');
