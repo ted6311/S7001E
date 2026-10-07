@@ -88,3 +88,88 @@ title('psd S_{YY}(\omega) [-\pi \leq \omega \leqq \pi ]')
 xlim([-pi pi]);
 xlabel('\omega')
 ylabel('S_{YY}(\omega)') 
+
+
+
+%% Q4
+
+M = 2: 20 ; 
+MSE = zeros(1, length(M)); 
+
+
+% Auto / Cross
+[RXX, lags] = xcorr(x ,l); 
+[RYX, lags1] = xcorr(y, x, l); 
+
+% Only for positive k vals, as only we want M>=0
+RXX_pos = RXX(lags1 >= 0);
+RYX_pos = RYX(lags2 >= 0);
+
+
+
+
+for i =  1:length(MSE)
+
+    M_valuse = M(i); 
+
+    % R matrix
+    R = zeros(M_valuse+1); 
+    for row = 1: M_valuse + 1
+        for col = 1:M_valuse + 1
+            j = abs(row-col) + 1; 
+            R(row, col) = RXX_pos(j);
+        end
+        
+    end
+
+
+
+    % P-matrix
+    P = RYX_pos(1:M_valuse+1); 
+
+    % P=R*H
+    H = R\P;  
+    
+
+    % y_hat
+    y_hat = zeros(size(y)); 
+
+    for n = M_valuse+1:length(x)
+
+        sum = 0;
+
+        for k = 0:M_valuse
+            sum = sum + H(k+1) * x(n-k);
+        end
+
+        y_hat(n) = sum;
+
+    end
+
+
+    %MSE
+    error_sum = 0;
+    
+    for n = M_valuse+1:length(y)
+
+        error = y(n) - y_hat(n);
+
+        error_sum = error_sum + error^2;
+
+    end
+
+    MSE(i) = error_sum / (length(y) - M_valuse);
+
+
+end
+
+
+figure;
+plot(M, MSE, 'o-');
+
+grid on;
+
+xlabel('M');
+ylabel('MSE');
+
+title('Mean-square error vs M');
