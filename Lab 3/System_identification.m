@@ -102,8 +102,8 @@ MSE = zeros(1, length(M));
 [RYX, lags1] = xcorr(y, x, l); 
 
 % Only for positive k vals, as only we want M>=0
-RXX_pos = RXX(lags1 >= 0);
-RYX_pos = RYX(lags2 >= 0);
+RXX_pos = RXX(lags >= 0);
+RYX_pos = RYX(lags1 >= 0);
 
 
 
